@@ -34,6 +34,7 @@ REGISTER NUMBER : 212224040353
 ```
 ```
 # creating a dataFrame
+import pandas as pd
 df = pd.DataFrame(
     [[1,2,3],
      [4,5,6],
@@ -43,7 +44,8 @@ df = pd.DataFrame(
 )
 print(df)
 ```
-![image](https://github.com/user-attachments/assets/e73de0bd-ab74-4dad-b6f4-28f53c0e91bc)
+![{2AF78F25-97F9-41CD-AAC1-9EC13B138DD2}](https://github.com/user-attachments/assets/dbcedc0a-85e7-47fc-a622-06c651e5da17)
+
 ```
 # creating dataframe from dictionary
 import pandas as pd
@@ -58,22 +60,33 @@ print(myvar)
 
 ```
 # Column addition
-data = {'Name': ['izana', 'mikey', 'draken', 'takemichi'],  'Height': [5.1, 6.2, 5.1, 5.2], 'Qualification': ['fighter', 'fighter', 'fighter', 'fighter']} 
-df = pd.DataFrame(data) 
-address = ['tokyo', 'berlin', 'denver', 'newjersey'] 
-df['Address'] = address 
-print(df) 
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Height': [5.5, 6.0, 5.8, 5.6],
+    'Qualification': ['Engineer', 'Doctor', 'Artist', 'Teacher']
+}
+
+df = pd.DataFrame(data)
+
+address = ['New York', 'Los Angeles', 'Chicago', 'Houston']
+df['Address'] = address
+
+print(df)
+
 ```
-![image](https://github.com/user-attachments/assets/42cfab1f-cd3f-4819-8ad3-54072c0d3900)
+![{28448782-37C2-43A3-8933-533C44149BA4}](https://github.com/user-attachments/assets/0c856d0a-2296-442c-acf1-9e0eb82021a1)
+
 
 ```
 import pandas as pd
 
 data = {
-    'Name': ['izana', 'mikey', 'draken', 'takemichi'],
-    'Age': [27, 24, 22, 32],
-    'Address': ['tokyo', 'berlin', 'denver', 'newjersey'],
-    'Qualification': ['fighter', 'fighter', 'fighter', 'fighter']
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [29, 34, 26, 31],
+    'Address': ['New York', 'Chicago', 'Seattle', 'Austin'],
+    'Qualification': ['Engineer', 'Lawyer', 'Designer', 'Analyst']
 }
 
 df = pd.DataFrame(data)
@@ -81,78 +94,85 @@ df = pd.DataFrame(data)
 del df['Address']
 
 print(df)
+
 ```
-![image](https://github.com/user-attachments/assets/f1359c21-430f-4a4f-bf75-3fe66ed73a5e)
+![{768888AE-19F9-457C-BF22-E0922CABD873}](https://github.com/user-attachments/assets/d7c933b5-084b-43ff-a743-a3b661824d13)
 
 ```
 # column renaming
 import pandas as pd
 
 data = {
-    'Name': ['izana', 'mikey', 'draken', 'takemichi'],
-    'Age': [27, 24, 22, 32],
-    'Address': ['tokyo', 'berlin', 'denver', 'newjersey'],
-    'Qualification': ['fighter', 'fighter', 'fighter', 'fighter']
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [29, 34, 26, 31],
+    'Address': ['New York', 'Chicago', 'Seattle', 'Austin'],
+    'Qualification': ['Engineer', 'Lawyer', 'Designer', 'Analyst']
 }
 
 df = pd.DataFrame(data)
-print(df)
+print("Original DataFrame:\n", df)
 
+df.rename(columns={'Address': 'Place'}, inplace=True)
 
-df.rename(columns={'Address': 'place'}, inplace=True)
-
-print(df)
+print("\nDataFrame after renaming column:\n", df)
 ```
-![image](https://github.com/user-attachments/assets/ccf89f76-d589-4003-8270-8a3b3b22b5a5)
+![{B8C77D70-4F6B-4349-98FB-115AFC1EA944}](https://github.com/user-attachments/assets/4d83c3f0-c5ac-4410-8c9d-75dfa31cb214)
+
 
 ```
 import pandas as pd
 
 data = {
-    'Name': ['izana', 'mikey', 'draken', 'takemichi'],
-    'Age': [27, 24, 22, 32],
-    'Address': ['tokyo', 'berlin', 'denver', 'newjersey'],
-    'Qualification': ['fighter', 'fighter', 'fighter', 'fighter']
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [29, 34, 26, 31],
+    'Address': ['New York', 'Chicago', 'Seattle', 'Austin'],
+    'Qualification': ['Engineer', 'Lawyer', 'Designer', 'Analyst']
 }
 
 df = pd.DataFrame(data)
-print(df)
-
+print("Original DataFrame:\n", df)
 
 df.columns = ['A', 'B', 'C', 'D']
-print(df)
+print("\nDataFrame after renaming columns:\n", df)
+
 ```
-![image](https://github.com/user-attachments/assets/f9fac1f8-9e31-4e3b-9c3c-5a21ec0f4c1c)
+![{1380C437-C02E-4E36-8BB6-F3B653AC6128}](https://github.com/user-attachments/assets/f2730ce7-d4a5-4c06-90ff-26f1a7c01b1c)
 
 ```
 # Indexing and Selecting data
 import pandas as pd
-data = {'name': ['Alice', 'Bob', 'Charlie', 'Dave'],
-        'age': [25, 32, 18, 47],
-        'gender': ['F', 'M', 'M', 'M'],
-        'height': [1.62, 1.78, 1.65, 1.83]}
+data = {
+    'name': ['Emily', 'Frank', 'Grace', 'Henry'],
+    'age': [28, 35, 22, 41],
+    'gender': ['F', 'M', 'F', 'M'],
+    'height': [1.68, 1.80, 1.60, 1.75]
+}
+
 df = pd.DataFrame(data)
 df = df['name']
-df
+
+print(df)
+
 ```
-![image](https://github.com/user-attachments/assets/5340f4de-6da5-4eab-b111-f479d96507aa)
+![{E42AA0E6-26B7-40CC-972A-7DAA49D8C8D0}](https://github.com/user-attachments/assets/4cdca3b7-8685-481b-9480-c8b92d3ca646)
+
 
 ```
 # Multiple column selection
 import pandas as pd
-
 data = {
-    'Name': ['Jai', 'Princi', 'Gaurav', 'Anuj'],
-    'Age': [27, 24, 22, 32],
-    'Address': ['Delhi', 'Kanpur', 'Allahabad', 'Kannauj'],
-    'Qualification': ['Msc', 'MA', 'MCA', 'Phd']
+    'Name': ['Emily', 'Nathan', 'Sophia', 'Liam'],
+    'Age': [28, 31, 26, 35],
+    'Address': ['Boston', 'Denver', 'Atlanta', 'Phoenix'],
+    'Qualification': ['MBA', 'B.Tech', 'MSc', 'PhD']
 }
 
 df = pd.DataFrame(data)
 
 print(df[['Name', 'Qualification']])
 ```
-![image](https://github.com/user-attachments/assets/ada0bccb-5aa9-42ae-b1c8-1de4798040f7)
+![{BA903B35-721D-46CF-BC8C-950779B9CA82}](https://github.com/user-attachments/assets/8c415c44-e83c-4b2f-bf03-833a1a330aac)
+
 
 ```
 # Finding nlargest
@@ -169,25 +189,28 @@ print(top_salaries)
 ```
 # Handling missing values using Dropna
 import pandas as pd
-
 data = {
-    'Name': ['izana', 'mikey', 'draken', 'takemichi', 'kakucho'],
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Ethan'],
     'Age': [25, 32, None, 41, 28],
     'Salary': [50000, None, 70000, 90000, 60000]
 }
 
 df = pd.DataFrame(data)
+
 df.dropna(inplace=True)
+
 print(df)
+
 ```
-![image](https://github.com/user-attachments/assets/686878f0-a3f5-47bf-bf13-25e4c458ed98)
+![{E14DD2C9-D54A-4858-BD78-D93EF3B1A850}](https://github.com/user-attachments/assets/ba429dbe-3b9d-4f75-9275-e1e0cd3ebd2a)
+
 ```
 # Filling missing values
 import pandas as pd
 import numpy as np
 
 data = {
-    'Name': ['izana', 'mikey', 'draken', 'takemichi', 'kakucho'],
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Ethan'],
     'Age': [25, np.nan, 35, 41, np.nan],
     'Salary': [50000, np.nan, 70000, np.nan, 60000]
 }
@@ -198,7 +221,8 @@ df_filled = df.fillna(0)
 
 print(df_filled)
 ```
-![image](https://github.com/user-attachments/assets/7d67c8aa-00c3-43cc-b001-773d94fbd271)
+![{401E652C-574A-433D-B600-679A8540528F}](https://github.com/user-attachments/assets/5278a32d-7df7-471b-92c3-f46c3791c4cd)
+
 
 ```
 # Sorting the dataframe with actual value
